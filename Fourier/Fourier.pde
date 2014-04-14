@@ -63,9 +63,9 @@ void drawTheme() {
   for (int i = 0; i < fft.specSize() ; i++) {
     y[i] += fft.getBand(i)/100;
     x[i] += fft.getFreq(i)/100;
-    angle[i] += fft.getFreq(i)/10000;
-    rotateX(cos(angle[i]/6));
-    rotateY(sin(angle[i]/6));
+    angle[i] += fft.getFreq(i)/1000;
+    rotateX(cos(angle[i]/4));
+    rotateY(sin(angle[i]/4));
     fill((fft.getBand(i)*4), 0, 0, 200);
     pushMatrix();
     translate((x[i]+100) % width, (y[i]+100) % height);
@@ -80,8 +80,8 @@ void drawTheme() {
     y[i] += fft.getBand(i)/100;
     x[i] += fft.getFreq(i)/100;
     angle[i] += fft.getFreq(i)/1000;
-    rotateX(cos(angle[i]/8));
-    rotateY(sin(angle[i]/8));
+    rotateX(cos(angle[i]/4));
+    rotateY(sin(angle[i]/4));
     fill(0,0,255,75);
     pushMatrix();
     translate((x[i]+75) % (width/3), (y[i]+75) % (height/3));
