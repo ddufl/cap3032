@@ -52,8 +52,8 @@ void drawTheme() {
     rotateY(sin(angle[i]/4));
     fill((fft.getBand(i)*10), 0, (fft.getBand(i)*10), 240);
     pushMatrix();
-    translate((x[i]+50) % (width/3), (y[i]+50) % (height/3));
-    box(fft.getBand(i)/10+fft.getBand(i)/5);
+    translate((x[i]+25) % (width/3), (y[i]+25) % (height/3));
+    box(fft.getBand(i)/3);
     popMatrix();
   } popMatrix();
   
@@ -68,8 +68,8 @@ void drawTheme() {
     rotateY(sin(angle[i]/4));
     fill((fft.getBand(i)*4), 0, 0, 200);
     pushMatrix();
-    translate((x[i]+100) % width, (y[i]+100) % height);
-    box(fft.getBand(i)/10+fft.getBand(i)/10);
+    translate((x[i]+50) % width, (y[i]+50) % height);
+    box(fft.getBand(i)/5);
     popMatrix();
   } popMatrix();
   
@@ -84,8 +84,8 @@ void drawTheme() {
     rotateY(sin(angle[i]/4));
     fill(0,0,255,75);
     pushMatrix();
-    translate((x[i]+75) % (width/3), (y[i]+75) % (height/3));
-    box(fft.getBand(i)/15+fft.getBand(i)/10);
+    translate((x[i]+25) % (width/3), (y[i]+25) % (height/3));
+    box(fft.getBand(i)/5);
     popMatrix();
   } popMatrix();
 }
