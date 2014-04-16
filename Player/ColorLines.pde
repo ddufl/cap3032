@@ -94,10 +94,10 @@ class ColorLines {
      if(mouseX > width - (width * 0.20) && mouseY > height - (height * 0.025)) {
        fill(r[0], g[0], b[0]); 
        textFont(calibri_14);
-       text("left_previous" + "   |   " + "right_next" + '\n' + 
-             "space_pause" + "   |   " + "m_mute" + '\n' +
-             "c_color" + "   |   " + "t_theme ",
-             width - (width * 0.20), height - (height * 0.125));
+       text("c_color" + "   |   " + "t_theme " + '\n' +
+            "left_previous" + "   |   " + "right_next" + '\n' + 
+            "space_pause" + "   |   " + "m_mute",
+            width - (width * 0.20), height - (height * 0.125));
        
        fill(r[4], g[4], b[4]);
        textFont(calibri_14);

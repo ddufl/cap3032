@@ -2,9 +2,9 @@ import ddf.minim.*;
 import ddf.minim.analysis.*;
 import processing.opengl.*;
 
-int count = 0;
+int count = 0; // Global song counter
 final int songs = 3; // Must be set or nothing works
-final int themes = 3;  // "Two" for now
+final int themes = 2;
 String user, folder, sfx;
 PFont calibri_14, calibri_20;
 
@@ -15,12 +15,7 @@ AudioSample change;
 KeyControls kc;
 ColorLines[] theme1; 
 int[] theme1_clr;
-GSLines[] theme2;
-Cubes[] theme3;
-
-/* Fourier attempt */
-FFT[] fft;
-
+Cubes[] theme2;
 
 void setup() {
  /* SFX folder - CHANGE AS NEEDED */
@@ -42,8 +37,7 @@ void setup() {
   kc = new KeyControls(0, 0, 1, 0); // initialize counters
   theme1 = new ColorLines[songs];
   theme1_clr = new int[6]; for(int i = 0; i < 6; i++) theme1_clr[i] = i;
-  theme2 = new GSLines[songs];
-  theme3 = new Cubes[songs];
+  theme2 = new Cubes[songs];
   
  /* These are the dimensions it will run at, for any screen */
   int widthChop = (int) (displayWidth * 0.125);
@@ -57,11 +51,7 @@ void setup() {
     track[i] = minim.loadFile(i + ".mp3", 2048);
     meta[i] = track[i].getMetaData();
     theme1[i] = new ColorLines(meta[i].author(), meta[i].title());
-    theme2[i] = new GSLines(meta[i].author(), meta[i].title());
-    
-    /* Fourier attempt */
-    fft[i] = new FFT(track[i].bufferSize(), track[i].sampleRate());
-    theme3[i] = new Cubes(i);
+    theme2[i] = new Cubes(meta[i].author(), meta[i].title());
   } 
    
   track[0].play();
@@ -83,14 +73,6 @@ void draw() {
     theme2[count].keyControls();
   }
   
-   if(tcount == 3) {
-     fft[count].forward(track[count].mix);
-     theme3[count].drawTheme();
-    //theme2[count].trackInfo();
-    //theme2[count].keyControls();
-  }
-  
-   
   /* Skip testing purposes
     if(keyPressed == true)
       if(keyCode == UP)

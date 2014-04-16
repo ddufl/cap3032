@@ -3,6 +3,8 @@ class KeyControls {
   private int mcount;  // Mute
   private int tcount;  // Theme
   private int toc_count; // ColorLines 
+  private boolean pstate; // For displaying pause state  
+  private boolean mstate; // For displaying mute state
      
      KeyControls(int pcount, int mcount,
                  int tcount, int toc_count) {
@@ -80,17 +82,19 @@ class KeyControls {
      }
      
      void changeColor() {
-       if(toc_count < (theme1_clr.length - 1)) {
-         toc_count++;
-         for(int i = 0; i < songs; i++) {
-           theme1[i].setColor(theme1_clr[toc_count]);
-           redraw();
-         }
-       } else {
-         toc_count = 0;
-         for(int i = 0; i < songs; i++) {
-           theme1[i].setColor(theme1_clr[toc_count]);
-           redraw();
+       if(tcount == 1) {
+         if(toc_count < (theme1_clr.length - 1)) {
+           toc_count++;
+           for(int i = 0; i < songs; i++) {
+             theme1[i].setColor(theme1_clr[toc_count]);
+             redraw();
+           }
+         } else {
+           toc_count = 0;
+           for(int i = 0; i < songs; i++) {
+             theme1[i].setColor(theme1_clr[toc_count]);
+             redraw();
+           }
          }
        }
      }
