@@ -17,57 +17,57 @@ class Cubes {
    noStroke();
    fft.forward(track[count].mix);
   
-   /* CYAN */
+   /* GOLD */
   pushMatrix();
-  translate(width/2, height/2); // Cyan starts in middle
-  for (int i = 0; i < fft.specSize() ; i++) {
+  translate((width/4), (height/2)); // Gold on left
+    for (int i = 0; i < fft.specSize(); i++) {
+      y[i] += fft.getBand(i)/100;
+      x[i] += fft.getFreq(i)/100;
+      angle[i] += fft.getFreq(i)/1000;
+      rotateX(cos(angle[i]/8));
+      rotateY(sin(angle[i]/8));
+      fill(random(200,255),random(175,215),0,125);
+      pushMatrix();
+      translate((x[i]+25) % (width/3), (y[i]+25) % (height/3));
+      box(fft.getBand(i)/5);
+      popMatrix();
+    } popMatrix();
+  
+   /* PURPLE */
+  pushMatrix();
+  translate(width/2, height/2); // Purple in middle
+  for (int i = 0; i < fft.specSize(); i++) {
     y[i] += fft.getBand(i)/50;
     x[i] += fft.getFreq(i)/50;
     angle[i] += fft.getFreq(i)/1000;
-    rotateX(cos(angle[i]/4));
-    rotateY(sin(angle[i]/4));
-    fill(0, (fft.getBand(i)*10), (fft.getBand(i)*10), 240);
+    rotateX(cos(angle[i]/8));
+    rotateY(sin(angle[i]/8));
+    fill(random(125,175), random(75,100), random(200,255), 150);
     pushMatrix();
-    translate((x[i]+25) % (width/3), (y[i]+25) % (height/3));
+    translate((x[i]+15) % (width/3), (y[i]+15) % (height/3));
     box(fft.getBand(i)/3);
     popMatrix();
   } popMatrix();
   
-  /* RED */
+  /* CYAN */
   pushMatrix();
-  translate(width/4, height/4); // Red starts in upper left
-  for (int i = 0; i < fft.specSize() ; i++) {
+  translate((3*width/4), height/2); // Cyan on right
+  for (int i = 0; i < fft.specSize(); i++) {
     y[i] += fft.getBand(i)/100;
     x[i] += fft.getFreq(i)/100;
     angle[i] += fft.getFreq(i)/1000;
-    rotateX(cos(angle[i]/4));
-    rotateY(sin(angle[i]/4));
-    fill((fft.getBand(i)*4), 0, 0, 200);
-    pushMatrix();
-    translate((x[i]+25) % width, (y[i]+25) % height);
-    box(fft.getBand(i)/5);
-    popMatrix();
-  } popMatrix();
-  
-  /* BLUE */
-   pushMatrix();
-   translate((3*width/4), (3*height/4)); // Blue starts in lower right
-   for (int i = 0; i < fft.specSize() ; i++) {
-    y[i] += fft.getBand(i)/100;
-    x[i] += fft.getFreq(i)/100;
-    angle[i] += fft.getFreq(i)/1000;
-    rotateX(cos(angle[i]/4));
-    rotateY(sin(angle[i]/4));
-    fill(0,0,255,75);
+    rotateX(cos(angle[i]/8));
+    rotateY(sin(angle[i]/8));
+    fill(0, random(200,255), random(175,225), 175);
     pushMatrix();
     translate((x[i]+25) % (width/3), (y[i]+25) % (height/3));
-    box(fft.getBand(i)/5);
+    box(fft.getBand(i)/4);
     popMatrix();
   } popMatrix();
- }
- 
- void trackInfo() {
-    fill(0,255,255);
+ }  
+  
+  void trackInfo() {
+    fill(0,255,255,225);
     textFont(calibri_20);
     text(author + " - " + title, 
          width - (width * 0.99), height - (height * 0.04)); 

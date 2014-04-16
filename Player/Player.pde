@@ -3,9 +3,9 @@ import ddf.minim.analysis.*;
 import processing.opengl.*;
 
 int count = 0; // Global song counter
-final int songs = 3; // Must be set or nothing works
+final int songs = 3; // Must be set right or nothing works
 final int themes = 2;
-String user, folder, sfx;
+String sfx;
 PFont calibri_14, calibri_20;
 
 Minim minim;
