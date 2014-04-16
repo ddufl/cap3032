@@ -19,9 +19,7 @@ Cubes[] theme2;
 
 void setup() {
  /* SFX folder - CHANGE AS NEEDED */
-  user = "derek"; 
-  folder = "project";
-  sfx = "/Users/" + user + "/Documents/Processing/" + folder + "/Player/sfx/";
+  sfx = "/Users/derek/Documents/Processing/project/Player/sfx/";
   
  /* Fonts */
   calibri_14 = createFont("Calibri", 14);
