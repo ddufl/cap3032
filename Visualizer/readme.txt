@@ -1,21 +1,36 @@
-CAP3032 Project - Spring 2014
+********************************
+ CAP 3032 PROJECT - SPRING 2014 
+********************************
 
-- Name songs 0 to (n-1).mp3 then change songs variable to n.
+  - Change sfx variable as needed.
+  - Name songs 0 to (n-1).mp3 then change songs variable to n. 
 
-- Change sfx variable as needed.
+*********
+ CHANGES
+*********
 
-- Each theme can cycle colors now.
+  - Added visual “BubbleWave”
+  - “Cubism” behavior not so hectic, smaller spread  
+  - All themes can cycle colors now.
+  - Rewind, fast forward (rewind hangs just a little)
+  - Time display replaces key controls
+  - Pause state display 
+  - Number row selection
+  - Cleaned up some cycle methods using modulus
+  - No color cycling for text
 
-- Rewind hangs a little. It’s not broken, but fast forward works better.
+**********
+ CONTROLS 
+**********
 
-Controls:
-
-Left arrow - previous
-Right arrow - next
-Spacebar - pause / play
-F - skip forward 10s
-R - skip reverse 10s
-M - mute player
-C - cycle colors
-T - cycle themes
-Number row - choose theme (1-3)
+  Left  - previous
+  Right - next
+  Space - pause / play
+  F - skip forward 10s
+  R - skip reverse 10s
+  M - mute player
+  C - cycle colors
+  T - cycle themes
+  1 - first theme
+  2 - second theme
+  3 - third theme
