@@ -133,7 +133,7 @@ class BubbleWave {
          width - (width * 0.99), height - (height * 0.02));
   }
   
-  void displayTime(boolean pstate) {
+  void displayTime() {
     int m, s;
     String min, sec;
     fill(150);
@@ -149,7 +149,7 @@ class BubbleWave {
       sec = Integer.toString(s);
     }
       
-    if(pstate == false) {
+    if(kc.isPaused() == false) {
       text(min + ":" + sec, width - (width * 0.03), height - (height * .02));
     } else { 
       text("paused", width - (width * 0.045), height - (height * .02));

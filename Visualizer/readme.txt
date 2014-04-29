@@ -9,6 +9,7 @@
  CHANGES
 *********
 
+  - Added auto-pilot
   - Added visual “BubbleWave”
   - “Cubism” behavior not so hectic, smaller spread  
   - All themes can cycle colors now.
@@ -34,3 +35,4 @@
   1 - first theme
   2 - second theme
   3 - third theme
+  A - auto / random mode

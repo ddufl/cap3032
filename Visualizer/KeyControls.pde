@@ -1,16 +1,18 @@
 class KeyControls {
   private int pause; // Pause counter
   private int mute;  // Mute counter
+  private int random; // Random counter
   private int theme;  // Theme counter
-  private int waves; // Waves counter
-  private int bwave; // BubbleWave counter
-  private int cubism; // Cubism counter 
+  private int waves; // Waves color counter
+  private int bwave; // BubbleWave color counter
+  private int cubism; // Cubism color counter 
   private boolean pstate; // Pause state
+  private boolean rstate; // Random state
      
   KeyControls() {
-    pause = mute = theme = 0;
+    pause = mute = random = theme = 0;
     waves = bwave = cubism = 0;
-    pstate = false;
+    pstate = rstate = false;
   }
   
   int getTheme() { 
@@ -21,15 +23,23 @@ class KeyControls {
     return pstate; 
   }
   
+  boolean isRandom() {
+    return rstate; 
+  }
+  
    void setTheme(int theme) {
     this.theme = theme; 
+  }
+  
+  void setPause(boolean pstate) {
+    this.pstate = pstate; 
   }
      
   void skipForward() {
     track[count].skip(10000);
   }
   
-  void skipBack() { 
+  void skipBackward() { 
     track[count].skip(-10000);
   } 
     
@@ -38,6 +48,7 @@ class KeyControls {
       change.trigger();
       track[count].rewind();
       track[count].pause();
+      if(rstate == true) rand.setTime(0);
       track[count+1].play();
       count++;
     } else {
@@ -45,6 +56,7 @@ class KeyControls {
       track[count].rewind();
       track[count].pause();
       count = 0;
+      if(rstate == true) rand.setTime(0);
       track[count].play();
     }
   }
@@ -54,12 +66,14 @@ class KeyControls {
       change.trigger();
       track[count].rewind();
       track[count].pause();
+      if(rstate == true) rand.setTime(0);
       track[count-1].play();
       count--;
     } else {
       change.trigger();
       track[count].rewind();
       track[count].pause();
+      if(rstate == true) rand.setTime(0);
       track[songs-1].play();
       count = track.length - 1; 
     }
@@ -84,6 +98,15 @@ class KeyControls {
          track[i].unmute();
        } mute++;
     }
+  
+    
+  void Random() {
+    if((random % 2) == 0) {
+      rstate = true;
+    } else { 
+      rstate = false;   
+    } random++;
+  }
      
   void cycleTheme() {
     theme++;
