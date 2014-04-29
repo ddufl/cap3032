@@ -9,7 +9,7 @@
  CHANGES
 *********
 
-  - Added auto-pilot
+  - Added auto-pilot, changes roughly every 10s
   - Added visual “BubbleWave”
   - “Cubism” behavior not so hectic, smaller spread  
   - All themes can cycle colors now.
