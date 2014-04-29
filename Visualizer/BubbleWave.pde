@@ -3,7 +3,7 @@ class BubbleWave {
   private float[] theta, x, y;
   private String author, title;
   private int clr;
-  private int[] line = {255, 225, 200, 150, 100, 50};
+  private int[] level = {255, 225, 200, 150, 100, 50};
   private int[] r = new int[6];
   private int[] g = new int[6];
   private int[] b = new int[6];
@@ -22,51 +22,52 @@ class BubbleWave {
     this.clr = clr; 
   }
   
+  /* Base color - other color is cycled in relation to this */
   void colorTheme() {
     switch(clr) {
       case 0: 
-        for(int i = 0; i < line.length; i++) { // Green
-          this.r[i] = zero;
-          this.g[i] = line[i];
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) { // Green
+          r[i] = zero;
+          g[i] = level[i];
+          b[i] = zero; 
          } break;
       case 1: 
-        for(int i = 0; i < line.length; i++) { // Yellow
-          this.r[i] = line[i];
-          this.g[i] = line[i];
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) { // Yellow
+          r[i] = level[i];
+          g[i] = level[i];
+          b[i] = zero; 
         } break;
       case 2: 
-        for(int i = 0; i < line.length; i++) {  // Red
-          this.r[i] = line[i];
-          this.g[i] = zero;
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) {  // Red
+          r[i] = level[i];
+          g[i] = zero;
+          b[i] = zero; 
         } break;
       case 3: 
-        for(int i = 0; i < line.length; i++) {  // Violet
-          this.r[i] = line[i];
-          this.g[i] = zero;
-          this.b[i] = line[i]; 
+        for(int i = 0; i < level.length; i++) {  // Violet
+          r[i] = level[i];
+          g[i] = zero;
+          b[i] = level[i]; 
         } break;
       case 4: 
-        for(int i = 0; i < line.length; i++) {  // Blue
-          this.r[i] = zero;
-          this.g[i] = zero;
-          this.b[i] = line[i]; 
+        for(int i = 0; i < level.length; i++) {  // Blue
+          r[i] = zero;
+          g[i] = zero;
+          b[i] = level[i]; 
         } break;
       case 5: 
-        for(int i = 0; i < line.length; i++) { // Cyan
-          this.r[i] = zero;
-          this.g[i] = line[i];
-          this.b[i] = line[i]; 
+        for(int i = 0; i < level.length; i++) { // Cyan
+          r[i] = zero;
+          g[i] = level[i];
+          b[i] = level[i]; 
         } break;
       default: 
-        for(int i = 0; i < line.length; i++) { // Green
-          this.r[i] = zero;
-          this.g[i] = line[i];
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) { // Green
+          r[i] = zero;
+          g[i] = level[i];
+          b[i] = zero; 
         } break;
-      }
+    }
   }
   
   void drawTheme() {
@@ -108,12 +109,12 @@ class BubbleWave {
       float x1 = map( i, 0, track[count].bufferSize(), 0, width );
       float x2 = map( i+1, 0, track[count].bufferSize(), 0, width ); 
       switch(clr) { 
-        case 0: stroke(0, g[0], g[1]); break; // Green
-        case 1: stroke(0, g[1] - 15, g[5] - 25); break; // Yellow
-        case 2: stroke(r[0], r[1], 0); break; // Red
-        case 3: stroke(r[0], 0, r[5] - 25); break; // Violet
-        case 4: stroke(b[0] - 15, 0, b[0]); break; // Blue
-        case 5: stroke(0, b[5] - 25, b[0]); break; // Cyan
+        case 0: stroke(0, g[0], g[1]); break;
+        case 1: stroke(0, g[1] - 15, g[5] - 25); break;
+        case 2: stroke(r[0], r[1], 0); break;
+        case 3: stroke(r[0], 0, r[5] - 25); break;
+        case 4: stroke(b[0] - 15, 0, b[0]); break;
+        case 5: stroke(0, b[5] - 25, b[0]); break;
         default: break;
       } line( x1, ((height * 0.5) - 1) + track[count].mix.get(i)*150, 
             x2, ((height * 0.5) + 1) + track[count].mix.get(i+1)*150 );

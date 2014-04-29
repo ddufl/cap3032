@@ -1,7 +1,7 @@
 class Waves {
   private String author, title;
   private int clr;
-  private int[] line = {255, 225, 200, 150, 100, 50};
+  private int[] level = {255, 225, 200, 150, 100, 50};
   private int[] r = new int[6];
   private int[] g = new int[6];
   private int[] b = new int[6];
@@ -16,51 +16,52 @@ class Waves {
     this.clr = clr; 
   }
   
+  /* Base color */
   void colorTheme() {
-    switch(this.clr) {
+    switch(clr) {
       case 0: 
-        for(int i = 0; i < line.length; i++) { // Green
-          this.r[i] = zero;
-          this.g[i] = line[i];
-          this.b[i] = zero; 
-        } break;
+        for(int i = 0; i < level.length; i++) { // Green
+          r[i] = zero;
+          g[i] = level[i];
+          b[i] = zero; 
+         } break;
       case 1: 
-        for(int i = 0; i < line.length; i++) { // Yellow
-          this.r[i] = line[i];
-          this.g[i] = line[i];
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) { // Yellow
+          r[i] = level[i];
+          g[i] = level[i];
+          b[i] = zero; 
         } break;
       case 2: 
-        for(int i = 0; i < line.length; i++) {  // Red
-          this.r[i] = line[i];
-          this.g[i] = zero;
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) {  // Red
+          r[i] = level[i];
+          g[i] = zero;
+          b[i] = zero; 
         } break;
       case 3: 
-        for(int i = 0; i < line.length; i++) {  // Violet
-          this.r[i] = line[i];
-          this.g[i] = zero;
-          this.b[i] = line[i]; 
+        for(int i = 0; i < level.length; i++) {  // Violet
+          r[i] = level[i];
+          g[i] = zero;
+          b[i] = level[i]; 
         } break;
       case 4: 
-        for(int i = 0; i < line.length; i++) {  // Blue
-          this.r[i] = zero;
-          this.g[i] = zero;
-          this.b[i] = line[i]; 
+        for(int i = 0; i < level.length; i++) {  // Blue
+          r[i] = zero;
+          g[i] = zero;
+          b[i] = level[i]; 
         } break;
       case 5: 
-        for(int i = 0; i < line.length; i++) { // Cyan
-          this.r[i] = zero;
-          this.g[i] = line[i];
-          this.b[i] = line[i]; 
+        for(int i = 0; i < level.length; i++) { // Cyan
+          r[i] = zero;
+          g[i] = level[i];
+          b[i] = level[i]; 
         } break;
       default: 
-        for(int i = 0; i < line.length; i++) { // Green
-          this.r[i] = zero;
-          this.g[i] = line[i];
-          this.b[i] = zero; 
+        for(int i = 0; i < level.length; i++) { // Green
+          r[i] = zero;
+          g[i] = level[i];
+          b[i] = zero; 
         } break;
-     }
+    }
   }
 
   void drawTheme() {

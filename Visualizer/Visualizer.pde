@@ -12,12 +12,12 @@ Waves[] theme0;
 BubbleWave[] theme1;
 Cubism[] theme2;
 int[] cycle_clr;
+String sfx;
+PFont calibri_14, calibri_16, calibri_20;
 
 int count = 0; // Global song counter
 final int songs = 4; // Must be set right or nothing works
 final int themes = 3;
-String sfx;
-PFont calibri_14, calibri_16, calibri_20;
 
 void setup() {
  /* SFX folder - CHANGE AS NEEDED */
@@ -39,7 +39,8 @@ void setup() {
   theme0 = new Waves[songs];
   theme1 = new BubbleWave[songs];
   theme2 = new Cubism[songs];
-  cycle_clr = new int[6]; for(int i = 0; i < 6; i++) cycle_clr[i] = i;
+  cycle_clr = new int[6]; 
+  for(int i = 0; i < 6; i++) cycle_clr[i] = i;
   
  /* These are the dimensions it will run at, for any screen */
   int widthChop = (int) (displayWidth * 0.125);

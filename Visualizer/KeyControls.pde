@@ -12,6 +12,26 @@ class KeyControls {
     waves = bwave = cubism = 0;
     pstate = false;
   }
+  
+  int getTheme() { 
+    return theme;
+  }
+  
+  boolean isPaused() {
+    return pstate; 
+  }
+  
+   void setTheme(int theme) {
+    this.theme = theme; 
+  }
+     
+  void skipForward() {
+    track[count].skip(10000);
+  }
+  
+  void skipBack() { 
+    track[count].skip(-10000);
+  } 
     
   void nextSong() {
     if(count < (track.length - 1)) {
@@ -52,9 +72,7 @@ class KeyControls {
     } else { 
       track[count].play();
       pstate = false;   
-    }
-           
-      pause++;
+    } pause++;
   }
      
   void mutePlayer() {
@@ -64,9 +82,7 @@ class KeyControls {
        } else {
          for(int i = 0; i < songs; i++)
          track[i].unmute();
-       }
-           
-       mute++;
+       } mute++;
     }
      
   void cycleTheme() {
@@ -103,25 +119,5 @@ class KeyControls {
       theme2[i].setColor(cycle_clr[cubism]);
       redraw();
     }
-  }
-     
-  int getTheme() { 
-    return theme;
-  }
-  
-  void setTheme(int theme) {
-    this.theme = theme; 
-  }
-  
-  boolean isPaused() {
-    return pstate; 
-  }
-     
-  void skipForward() {
-    track[count].skip(10000);
-  }
-  
-  void skipBack() { 
-    track[count].skip(-10000);
-  }   
+  }  
 }
