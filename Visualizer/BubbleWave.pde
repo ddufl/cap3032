@@ -78,8 +78,8 @@ class BubbleWave {
     pushMatrix();
     translate(width/4, height/2);
     for(int i = 0; i < fft.specSize(); i++) {
-      y[i] += fft.getBand(i)/100;
       x[i] += fft.getFreq(i)/100;
+      y[i] += fft.getBand(i)/100;
       theta[i] += fft.getFreq(i)/1000;
       rotateZ(cos(theta[i]/500));
       fill(r[2], g[2], b[2], 125);
@@ -93,8 +93,8 @@ class BubbleWave {
     pushMatrix();
     translate(3*width/4, height/2);
     for(int i = 0; i < fft.specSize(); i++) {
-      y[i] += fft.getBand(i)/100;
       x[i] += fft.getFreq(i)/100;
+      y[i] += fft.getBand(i)/100;
       theta[i] += fft.getFreq(i)/1000;
       rotateZ(cos(theta[i]/500));
       fill(r[2], g[2], b[2], 125);
@@ -108,16 +108,19 @@ class BubbleWave {
     for(int i = 0; i < track[count].bufferSize() - 1; i++) {
       float x1 = map( i, 0, track[count].bufferSize(), 0, width );
       float x2 = map( i+1, 0, track[count].bufferSize(), 0, width ); 
-      switch(clr) { 
-        case 0: stroke(0, g[0], g[1]); break;
-        case 1: stroke(0, g[1] - 15, g[5] - 25); break;
-        case 2: stroke(r[0], r[1], 0); break;
-        case 3: stroke(r[0], 0, r[5] - 25); break;
-        case 4: stroke(b[0] - 15, 0, b[0]); break;
-        case 5: stroke(0, b[5] - 25, b[0]); break;
-        default: break;
-      } line( x1, ((height * 0.5) - 1) + track[count].mix.get(i)*150, 
-            x2, ((height * 0.5) + 1) + track[count].mix.get(i+1)*150 );
+      if(kc.isPaused() == false) {
+        switch(clr) { 
+          case 0: stroke(0, g[0], g[1]); break;
+          case 1: stroke(0, g[1] - 15, g[5] - 25); break;
+          case 2: stroke(r[0], r[1], 0); break;
+          case 3: stroke(r[0], 0, r[5] - 25); break;
+          case 4: stroke(b[0] - 15, 0, b[0]); break;
+          case 5: stroke(0, b[5] - 25, b[0]); break;
+          default: break;
+        }
+      } else stroke(0); 
+        line( x1, ((height * 0.5) - 1) + track[count].mix.get(i)*150, 
+              x2, ((height * 0.5) + 1) + track[count].mix.get(i+1)*150 );
     }
   }
   

@@ -41,6 +41,9 @@ class RandomAuto {
         rtheme0[count].drawTheme();
         rtheme0[count].displayInfo();
         rtheme0[count].displayTime();
+        fill(175);
+        textFont(calibri_16);
+        text("auto", width - (width * 0.997), height - (height * .98));
     }
     
     if(theme == 1) {
@@ -56,6 +59,9 @@ class RandomAuto {
         rtheme1[count].drawTheme();
         rtheme1[count].displayInfo();
         rtheme1[count].displayTime();
+        fill(175);
+        textFont(calibri_16);
+        text("auto", width - (width * 0.997), height - (height * .98));
     }
     
     if(theme == 2) {
@@ -71,6 +77,9 @@ class RandomAuto {
         rtheme2[count].drawTheme();
         rtheme2[count].displayInfo();
         rtheme2[count].displayTime();
+        fill(175);
+        textFont(calibri_16);
+        text("auto", width - (width * 0.997), height - (height * .98));
     }
   } 
 }

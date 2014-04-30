@@ -69,13 +69,17 @@ class Waves {
     
     for(int i = 0; i < track[count].bufferSize() - 1; i++) {
       float x1 = map( i, 0, track[count].bufferSize(), 0, width );
-      float x2 = map( i+1, 0, track[count].bufferSize(), 0, width ); stroke(r[0], g[0], b[0]);
+      float x2 = map( i+1, 0, track[count].bufferSize(), 0, width ); 
+      if(kc.isPaused() == false) stroke(r[0], g[0], b[0]); else stroke(0);
       line( x1, ((height * 0.1875) - 1) + track[count].left.get(i)*150, 
-            x2, ((height * 0.1875) + 1) + track[count].left.get(i+1)*150 ); stroke(r[1], g[1], b[1]);
+            x2, ((height * 0.1875) + 1) + track[count].left.get(i+1)*150 );
+      if(kc.isPaused() == false) stroke(r[1], g[1], b[1]); else stroke(0);     
       line( x1, ((height * 0.375) - 2) + track[count].left.get(i)*150,
-            x2, ((height * 0.375) + 2) + track[count].left.get(i+1)*150 ); stroke(r[3], g[3], b[3]);
+            x2, ((height * 0.375) + 2) + track[count].left.get(i+1)*150 );
+      if(kc.isPaused() == false) stroke(r[3], g[3], b[3]); else stroke(0);
       line( x1, ((height * 0.5625) - 4)+ track[count].right.get(i)*150,
-            x2, ((height * 0.5625) + 4) + track[count].right.get(i+1)*150 ); stroke(r[5], g[5], b[5]);
+            x2, ((height * 0.5625) + 4) + track[count].right.get(i+1)*150 );
+      if(kc.isPaused() == false) stroke(r[5], g[5], b[5]); else stroke(0);
       line( x1, ((height * 0.75) - 6)+ track[count].right.get(i)*150, 
             x2, ((height * 0.75) + 6) + track[count].right.get(i+1)*150 );
     } 

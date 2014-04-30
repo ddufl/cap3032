@@ -72,9 +72,6 @@ void draw() {
   if(kc.isRandom() == true) {
     rand.randomTheme();
     rand.drawTheme();
-    fill(175);
-    textFont(calibri_16);
-    text("auto", width - (width * 0.997), height - (height * .98));
   } else if(kc.getTheme() == 0) {
     theme0[count].colorTheme();
     theme0[count].drawTheme();

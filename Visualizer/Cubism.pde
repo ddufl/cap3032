@@ -79,8 +79,8 @@ class Cubism {
   pushMatrix();
   translate(width/4, height/2);
   for(int i = 0; i < fft.specSize(); i++) {
-     y[i] += fft.getBand(i)/100;
      x[i] += fft.getFreq(i)/100;
+     y[i] += fft.getBand(i)/100;
      theta[i] += fft.getFreq(i)/1000;
      rotateZ(cos(theta[i]/500));
      fill(r[2], g[2], b[2], 125);
@@ -94,8 +94,8 @@ class Cubism {
   pushMatrix();
   translate(width/2, height/2);
   for(int i = 0; i < fft.specSize(); i++) {
-    y[i] += fft.getBand(i)/50;
     x[i] += fft.getFreq(i)/50;
+    y[i] += fft.getBand(i)/50;
     theta[i] += fft.getFreq(i)/1000;
     rotateZ(cos(theta[i]/500));
     switch(clr) { 
@@ -116,8 +116,8 @@ class Cubism {
   pushMatrix();
   translate((3*width/4), height/2);
   for(int i = 0; i < fft.specSize(); i++) {
-    y[i] += fft.getBand(i)/100;
     x[i] += fft.getFreq(i)/100;
+    y[i] += fft.getBand(i)/100;
     theta[i] += fft.getFreq(i)/1000;
     rotateZ(-cos(theta[i]/500));
     switch(clr) { 
